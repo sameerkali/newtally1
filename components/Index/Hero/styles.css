@@ -1,0 +1,23 @@
+/* styles.css */
+
+.carousel-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px; /* Adjust padding as needed */
+}
+
+.left-content {
+    background-color: red;
+  flex: 1; /* Takes up 50% of the container */
+}
+
+.right-content {
+  flex: 1; /* Takes up 50% of the container */
+}
+
+.button-group {
+  margin-top: 10px; /* Adjust margin as needed */
+}
+
+/* Add more styling as per your design requirements */
