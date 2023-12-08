@@ -17,6 +17,7 @@
 // }
 import React from "react";
 import Carousel from "./carousel";
+// import { FlockingBirdsBackground } from 'flocking-birds-background'
 
 const Hero = () => {
   return (
@@ -28,7 +29,8 @@ const Hero = () => {
         background: "linear-gradient(45deg, #fffae3, #ffd700)",
         backgroundSize: "cover"
       }}
-    >
+      >
+      {/* <FlockingBirdsBackground initialBirdCount={1}/> */}
         <div className="inline-block w-full h-full z-index-1">
           <div className="w-full min-h-screen -z-1 pt-8 leading-8">
             <Carousel />
