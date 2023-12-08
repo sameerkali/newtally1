@@ -11,6 +11,8 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import Owl from './OwlCarousel'
 import OwlCarousel from './OwlCarousel'
+import { Facebook, Linkedin, LinkedinIcon, Twitter, X } from 'lucide-react'
+import { FaPinterest } from 'react-icons/fa'
 
 interface FormData {
   name: string
@@ -256,22 +258,27 @@ export const Navbar: FC = () => {
                         <ul className="list-inline">
                           <li>
                             <a href="http://www.facebook.com/TallySolution">
-                              <i className="fab fa-facebook-f"></i>
+                              {/* <i className="fab fa-facebook-f"></i> */}
+                              <Facebook/>
                             </a>
                           </li>
                           <li>
                             <a href="http://www.pinterest.com/tallysoftware">
-                              <i className="fab fa-pinterest"></i>
+                              {/* <i className="fab fa-pinterest"></i> */}
+                              <FaPinterest/>
                             </a>
                           </li>
                           <li>
                             <a href="http://twitter.com/#!/TALLYSOLUTION">
-                              <i className="fab fa-twitter"></i>
+                              {/* <i className="fab fa-twitter"></i> */}
+                              <Twitter/>
                             </a>
                           </li>
                           <li>
                             <a href="http://www.linkedin.com/pub/tally-customization-developers-delhi-ncr/38/5b/a7">
-                              <i className="fab fa-linkedin-in"></i>
+                              {/* <i className="fab fa-linkedin-in"></i> */}
+                              <Linkedin/>
+                              {/* <FontAwesomeIcon icon="fab fa-linkedin-in" /> */}
                             </a>
                           </li>
                         </ul>
