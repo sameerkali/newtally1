@@ -15,8 +15,8 @@
 //     </section>
 //   )
 // }
-import React from 'react'
-import Carousel from './carousel'
+import React from "react";
+import Carousel from "./carousel";
 
 const Hero = () => {
   return (
@@ -25,17 +25,17 @@ const Hero = () => {
       id="home"
       style={{
         // backgroundImage: 'url("/images/bg1.webp")',
-        background: 'linear-gradient(45deg, #fffae3, #ffd700)',
-        backgroundSize: 'cover',
+        background: "linear-gradient(45deg, #fffae3, #ffd700)",
+        backgroundSize: "cover"
       }}
     >
-      <div className="inline-block w-full h-full z-index-1">
-        <div className="w-full min-h-screen -z-1 pt-8 leading-8">
-          <Carousel />
+        <div className="inline-block w-full h-full z-index-1">
+          <div className="w-full min-h-screen -z-1 pt-8 leading-8">
+            <Carousel />
+          </div>
         </div>
-      </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

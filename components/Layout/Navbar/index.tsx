@@ -1,47 +1,57 @@
-import { FC, FormEvent, useEffect, useState } from 'react'
-import { Link } from '@components/Utils/Link'
-import { IoIosArrowUp } from 'react-icons/io'
-import { useRouter } from 'next/router'
-import { GiHamburgerMenu } from 'react-icons/gi'
-import { CustomImage } from '@components/Utils/CustomImage'
-import classNames from 'classnames'
-import icon from '@assets/icon.svg'
+import { FC, FormEvent, useEffect, useState } from "react";
+import { Link } from "@components/Utils/Link";
+import { IoIosArrowUp } from "react-icons/io";
+import { useRouter } from "next/router";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { CustomImage } from "@components/Utils/CustomImage";
+import classNames from "classnames";
+import icon from "@assets/icon.svg";
 
-import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
-import Owl from './OwlCarousel'
-import OwlCarousel from './OwlCarousel'
-import { Facebook, Linkedin, LinkedinIcon, Twitter, X } from 'lucide-react'
-import { FaPinterest } from 'react-icons/fa'
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Owl from "./OwlCarousel";
+import OwlCarousel from "./OwlCarousel";
+import {
+  Facebook,
+  Linkedin,
+  LinkedinIcon,
+  Mail,
+  Phone,
+  PhoneCall,
+  ShoppingBag,
+  Twitter,
+  X
+} from "lucide-react";
+import { FaPinterest } from "react-icons/fa";
 
 interface FormData {
-  name: string
-  email: string
-  phone: string
-  select: string
+  name: string;
+  email: string;
+  phone: string;
+  select: string;
 }
 const RapidResponseCenter = () => {
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    select: '',
-  })
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+    name: "",
+    email: "",
+    phone: "",
+    select: ""
+  });
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { name, value } = event.target
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }))
-  }
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    console.log(formData)
-  }
+    event.preventDefault();
+    console.log(formData);
+  };
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -49,7 +59,7 @@ const RapidResponseCenter = () => {
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title style={{ color: 'blue', fontWeight: 'bold' }}>
+          <Modal.Title style={{ color: "blue", fontWeight: "bold" }}>
             Ask For A Service
           </Modal.Title>
         </Modal.Header>
@@ -154,43 +164,43 @@ const RapidResponseCenter = () => {
         </Modal.Footer> */}
       </Modal>
     </>
-  )
-}
+  );
+};
 export const Navbar: FC = () => {
-  const router = useRouter()
-  const [top, setTop] = useState(false)
-  const [hash, setHash] = useState(false)
+  const router = useRouter();
+  const [top, setTop] = useState(false);
+  const [hash, setHash] = useState(false);
 
   const PAGES = [
     {
-      name: 'Home',
-      link: '/',
+      name: "Home",
+      link: "/"
     },
     {
-      name: 'Company',
-      link: '/#about',
+      name: "Company",
+      link: "/#about"
     },
     {
-      name: 'Products',
-      link: '/#services',
+      name: "Products",
+      link: "/#services"
     },
     {
-      name: 'Services',
-      link: '/#projects',
+      name: "Services",
+      link: "/#projects"
     },
     {
-      name: 'Solution',
-      link: '/#contact',
+      name: "Solution",
+      link: "/#contact"
     },
     {
-      name: 'Download',
-      link: '/#contact',
+      name: "Download",
+      link: "/#contact"
     },
     {
-      name: 'Contact Us',
-      link: '/#contact',
-    },
-  ]
+      name: "Contact Us",
+      link: "/#contact"
+    }
+  ];
 
   useEffect(() => {
     window.onscroll = function () {
@@ -198,21 +208,24 @@ export const Navbar: FC = () => {
         document.body.scrollTop > 20 ||
         document.documentElement.scrollTop > 20
       )
-        setTop(true)
-      else setTop(false)
-    }
-  }, [])
+        setTop(true);
+      else setTop(false);
+    };
+  }, []);
 
   const onUp = () => {
-    window.location.href = '#'
-  }
+    window.location.href = "#";
+  };
 
   const onClose = () => {
-    setHash(!hash)
-  }
+    setHash(!hash);
+  };
 
   return (
-    <nav id="site-header" className=" p-4 fixed w-full top-0 custom-navbar">
+    <nav
+      id="site-header"
+      className=" p-4 pb-2 fixed w-full top-0 custom-navbar"
+    >
       <div className="header-top bg-yellow-600">
         <div className="container-fluid">
           <div className="row">
@@ -223,7 +236,7 @@ export const Navbar: FC = () => {
               >
                 <CustomImage
                   style={{ height: 116, width: 116 }}
-                  src={'images/banner/logo.gif'}
+                  src={"images/banner/logo.gif"}
                   className="mr-3 h-6 sm:h-9 rounded-md"
                   alt="Navbar Logo"
                 />
@@ -238,7 +251,7 @@ export const Navbar: FC = () => {
 
                   <div className="row justify-content-center align-items-end">
                     {/* add  carousel here */}
-                    <div className="col-md-4" style={{marginRight:'40px'}}>
+                    <div className="col-md-4" style={{ marginRight: "40px" }}>
                       <OwlCarousel />
                     </div>
                     <div className="col-md-4">
@@ -259,25 +272,25 @@ export const Navbar: FC = () => {
                           <li>
                             <a href="http://www.facebook.com/TallySolution">
                               {/* <i className="fab fa-facebook-f"></i> */}
-                              <Facebook/>
+                              <Facebook />
                             </a>
                           </li>
                           <li>
                             <a href="http://www.pinterest.com/tallysoftware">
                               {/* <i className="fab fa-pinterest"></i> */}
-                              <FaPinterest/>
+                              <FaPinterest />
                             </a>
                           </li>
                           <li>
                             <a href="http://twitter.com/#!/TALLYSOLUTION">
                               {/* <i className="fab fa-twitter"></i> */}
-                              <Twitter/>
+                              <Twitter />
                             </a>
                           </li>
                           <li>
                             <a href="http://www.linkedin.com/pub/tally-customization-developers-delhi-ncr/38/5b/a7">
                               {/* <i className="fab fa-linkedin-in"></i> */}
-                              <Linkedin/>
+                              <Linkedin />
                               {/* <FontAwesomeIcon icon="fab fa-linkedin-in" /> */}
                             </a>
                           </li>
@@ -287,10 +300,11 @@ export const Navbar: FC = () => {
                     <div className="col-md-12">
                       <div className="d-flex">
                         <div className="d-flex align-items-end me-3">
-                          <i
+                          {/* <i
                             className="flaticon-email pe-2"
                             style={{ fontSize: 25 }}
-                          ></i>
+                          ></i> */}
+                          <Mail size={17} />
                           <div>
                             <h6>Email Us</h6>
                             <a href="mailto:tallyproducts@gmail.com">
@@ -299,10 +313,11 @@ export const Navbar: FC = () => {
                           </div>
                         </div>
                         <div className="d-none d-md-flex align-items-end me-3">
-                          <i
+                          {/* <i
                             className="flaticon-phone pe-2"
                             style={{ fontSize: 25 }}
-                          ></i>
+                            ></i> */}
+                          <PhoneCall size={17} />
                           <div>
                             <h6>Call Us</h6>
                             <a href="tel:+919582927928">+91 9582927928</a>
@@ -313,8 +328,8 @@ export const Navbar: FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="topbar-link d-none d-sm-flex align-items-center justify-content-between" />
-              <div className="header-wrap">
+              <div className="topbar-link  d-none d-sm-flex align-items-center justify-content-between" />
+              <div className="header-wrap ">
                 <div className="container-fluid">
                   <div className="row">
                     <div className="col-lg-12">
@@ -323,7 +338,8 @@ export const Navbar: FC = () => {
                           className="collapse navbar-collapse"
                           id="navbarNavDropdown"
                         >
-                          <ul className="navbar-nav w-100 justify-content-center">
+                          {/* edit this==================================================================| */}
+                          <ul className="navbar-nav w-100 justify-content-center p-0">
                             {/* {PAGES.map((nav, index) => (
                               <li key={index} className="nav-item">
                                 <Link
@@ -335,22 +351,22 @@ export const Navbar: FC = () => {
                               </li>
                             ))} */}
                             <ul className="navbar-nav w-100 justify-content-center">
-                              <li>
+                              {/* <li>
                                 <img
                                   src="assets/images/logo.gif"
                                   alt=""
-                                  className="fixed-logo"
-                                  style={{ filter: 'invert(0)' }}
+                                  className="fixed-logo "
+                                  style={{ filter: "invert(0)" }}
                                 />
-                              </li>
+                              </li> */}
                               <li className="nav-item">
-                                {' '}
+                                {" "}
                                 <a className="nav-link" href="/">
                                   Home
                                 </a>
                               </li>
                               <li className="nav-item dropdown">
-                                {' '}
+                                {" "}
                                 <a
                                   className="nav-link dropdown-toggle"
                                   href="#"
@@ -364,7 +380,7 @@ export const Navbar: FC = () => {
                                       <a href="/company/about">About Us</a>
                                     </li>
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="#"
                                         className="dropdown-toggle"
@@ -381,7 +397,7 @@ export const Navbar: FC = () => {
                                       </ul>
                                     </li>
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="#"
                                         className="dropdown-toggle"
@@ -397,7 +413,7 @@ export const Navbar: FC = () => {
                                         </li>
                                         <li>
                                           <a href="/company/clientage">
-                                            Our Esteemed Clientage{' '}
+                                            Our Esteemed Clientage{" "}
                                           </a>
                                         </li>
                                       </ul>
@@ -406,7 +422,7 @@ export const Navbar: FC = () => {
                                 </div>
                               </li>
                               <li className="nav-item dropdown">
-                                {' '}
+                                {" "}
                                 <a
                                   className="nav-link dropdown-toggle"
                                   href="#"
@@ -448,7 +464,7 @@ export const Navbar: FC = () => {
                                 </div>
                               </li>
                               <li className="nav-item dropdown">
-                                {' '}
+                                {" "}
                                 <a
                                   className="nav-link dropdown-toggle"
                                   href="#"
@@ -459,7 +475,7 @@ export const Navbar: FC = () => {
                                 <div className="dropdown-menu">
                                   <ul className="list-unstyled">
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="#"
                                         className="dropdown-toggle"
@@ -481,7 +497,7 @@ export const Navbar: FC = () => {
                                       </ul>
                                     </li>
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="#"
                                         className="dropdown-toggle"
@@ -508,7 +524,7 @@ export const Navbar: FC = () => {
                                       </ul>
                                     </li>
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="#"
                                         className="dropdown-toggle"
@@ -530,7 +546,7 @@ export const Navbar: FC = () => {
                                       </ul>
                                     </li>
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="#"
                                         className="dropdown-toggle"
@@ -698,7 +714,7 @@ export const Navbar: FC = () => {
                                 </div>
                               </li>
                               <li className="nav-item dropdown">
-                                {' '}
+                                {" "}
                                 <a
                                   className="nav-link dropdown-toggle"
                                   href="#"
@@ -709,7 +725,7 @@ export const Navbar: FC = () => {
                                 <div className="dropdown-menu">
                                   <ul className="list-unstyled">
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="/solutions/verticalsolutions"
                                         className="dropdown-toggle"
@@ -827,7 +843,7 @@ export const Navbar: FC = () => {
                                       </ul>
                                     </li>
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="/solutions/cusomizationsol"
                                         className="dropdown-toggle"
@@ -854,7 +870,7 @@ export const Navbar: FC = () => {
                                       </ul>
                                     </li>
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="\solutions\invoicecust"
                                         className="dropdown-toggle"
@@ -913,7 +929,7 @@ export const Navbar: FC = () => {
                                       </ul>
                                     </li>
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="/solutions/addonmodules"
                                         className="dropdown-toggle"
@@ -935,7 +951,7 @@ export const Navbar: FC = () => {
                                             href="\assets\Vehicle-Sales-Module.pdf"
                                             target="_blank"
                                           >
-                                            Vehicle Sales Module{' '}
+                                            Vehicle Sales Module{" "}
                                           </a>
                                         </li>
                                         <li>
@@ -943,7 +959,7 @@ export const Navbar: FC = () => {
                                             href="\assets\PARTY-WISE-OUTSTANDING-MODULE.pdf"
                                             target="_blank"
                                           >
-                                            Party Wise Outstanding Module{' '}
+                                            Party Wise Outstanding Module{" "}
                                           </a>
                                         </li>
                                         <li>
@@ -951,7 +967,7 @@ export const Navbar: FC = () => {
                                             href="\assets\STANDARD-TERMS-AND-CONDITION-MODULE.pdf"
                                             target="_blank"
                                           >
-                                            Standard Terms and Condition Module{' '}
+                                            Standard Terms and Condition Module{" "}
                                           </a>
                                         </li>
                                         <li>
@@ -959,7 +975,7 @@ export const Navbar: FC = () => {
                                             href="\assets\THREE-DISCOUNT-COLOUM-MODULE.pdf"
                                             target="_blank"
                                           >
-                                            Three Discount Column Module{' '}
+                                            Three Discount Column Module{" "}
                                           </a>
                                         </li>
                                         <li>
@@ -972,7 +988,7 @@ export const Navbar: FC = () => {
                                             href="\assets\GODOWN-ADDRESS-IN-PRINT-MODULE.pdf"
                                             target="_blank"
                                           >
-                                            Godown Address in Print Module{' '}
+                                            Godown Address in Print Module{" "}
                                           </a>
                                         </li>
                                         <li>
@@ -980,7 +996,7 @@ export const Navbar: FC = () => {
                                             href="\assets\Petrol-Pump-Module.pdf"
                                             target="_blank"
                                           >
-                                            Petrol Pump Module{' '}
+                                            Petrol Pump Module{" "}
                                           </a>
                                         </li>
                                         <li>
@@ -988,7 +1004,7 @@ export const Navbar: FC = () => {
                                             href="\assets\STOCK-GROUP-WISE-ITEM-FILTER-MODULE.pdf"
                                             target="_blank"
                                           >
-                                            Stock Group Wise Item Filter{' '}
+                                            Stock Group Wise Item Filter{" "}
                                           </a>
                                         </li>
                                         <li>
@@ -1002,7 +1018,7 @@ export const Navbar: FC = () => {
                                       </ul>
                                     </li>
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="/solutions/tallyintegration"
                                         className="dropdown-toggle"
@@ -1039,7 +1055,7 @@ export const Navbar: FC = () => {
                                       </ul>
                                     </li>
                                     <li className="dropdown dropdown-submenu">
-                                      {' '}
+                                      {" "}
                                       <a
                                         href="/solutions/corpmanangement"
                                         className="dropdown-toggle"
@@ -1065,7 +1081,7 @@ export const Navbar: FC = () => {
                                         </li>
                                         <li>
                                           <a href="\solutions\corporatemanagement\erpcorporate">
-                                            ERP for Corporate's and Industries{' '}
+                                            ERP for Corporate's and Industries{" "}
                                           </a>
                                         </li>
                                       </ul>
@@ -1079,7 +1095,7 @@ export const Navbar: FC = () => {
                                 </div>
                               </li>
                               <li className="nav-item dropdown">
-                                {' '}
+                                {" "}
                                 <a
                                   className="nav-link dropdown-toggle"
                                   href="#"
@@ -1103,7 +1119,7 @@ export const Navbar: FC = () => {
                                 </div>
                               </li>
                               <li className="nav-item">
-                                {' '}
+                                {" "}
                                 <a className="nav-link" href="/contact">
                                   Contact Us
                                 </a>
@@ -1151,7 +1167,8 @@ export const Navbar: FC = () => {
                                     className="btn me-1 me-sm-3"
                                     href="/buyoffline"
                                   >
-                                    <i className="flaticon-shopping-cart" />
+                                    {/* <i className="flaticon-shopping-cart" /> */}
+                                    <ShoppingBag />
                                     <span>Buy Tally</span>
                                   </a>
                                 </div>
@@ -1161,7 +1178,7 @@ export const Navbar: FC = () => {
                                   <img
                                     src="assets/images/tallyinternational.png"
                                     className="tally-international-shake"
-                                    style={{ filter: 'invert(0)' }}
+                                    style={{ filter: "invert(0)" }}
                                   />
                                 </a>
                               </li>
@@ -1193,21 +1210,24 @@ export const Navbar: FC = () => {
           >
             
           </div> */}
+        {/* testign The White line */}
       </div>
-      <button
+
+      {/* <button
         aria-label="Go Up"
         onClick={onUp}
         className={classNames(
-          'bg-white border-2 border-blue-700 text-center fixed bottom-5 h-12 w-12 right-5 duration-500 rounded-full z-50 group',
-          'hover:bg-blue-600 hover:border-blue-600',
+          "bg-white border-2 border-blue-700 text-center fixed bottom-5 h-12 w-12 right-5 duration-500 rounded-full z-50 group",
+          "hover:bg-blue-600 hover:border-blue-600",
           {
             block: top,
-            hidden: !top,
+            hidden: !top
           }
         )}
       >
         <IoIosArrowUp className="h-full w-full p-2 text-blue-700 group-hover:text-white" />
-      </button>
+      </button> */}
+      {/* testign The White line */}
     </nav>
-  )
-}
+  );
+};
